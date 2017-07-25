@@ -1,0 +1,21 @@
+SELECT * FROM Customers;
+SELECT DISTINCT country FROM customers;
+SELECT * FROM Customers WHERE CustomerID LIKE 'BL%'
+SELECT * FROM Orders LIMIT 100;
+SELECT * FROM Customers WHERE PostalCode = 1010 OR PostalCode = 3012 OR PostalCode = 12209 OR PostalCode = 05023;
+SELECT * FROM Orders Where ShipRegion IS NOT NULL;
+SELECT * FROM Customers ORDER BY country, city;
+INSERT INTO Customers (CustomerID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax) VALUES ('BO345', 'Ford', 'Fred Smith', 'Sales Agent', '123 Backstreet', 'Boston', 'MA', '01841', 'USA', '(617) 123-4567', NULL);
+SET SQL_SAFE_UPDATES =0;
+UPDATE Orders SET ShipRegion = 'Eurozone' WHERE ShipCountry = 'France';
+DELETE FROM `order details` WHERE Quantity =1;	
+SELECT min(quantity) FROM `order details`;
+SELECT max(quantity) FROM `order details`;
+SELECT avg(quantity) FROM `order details`;
+SELECT min(quantity) FROM `order details` GROUP BY orderid;
+SELECT max(quantity) FROM `order details` GROUP BY orderid;
+SELECT avg(quantity) FROM `order details` GROUP BY orderid;
+SELECT Orders.orderID, Customers.CustomerID FROM Orders INNER JOIN Customers ON Orders.CustomerID= Customers.CustomerID;
+SELECT Orders.orderID, Customers.CustomerID FROM Orders LEFT JOIN Customers ON Orders.CustomerID= Customers.CustomerID;
+SELECT FirstName FROM employees WHERE ReportsTo IS NULL;
+SELECT FirstName FROM employees WHERE ReportsTo = 2;
